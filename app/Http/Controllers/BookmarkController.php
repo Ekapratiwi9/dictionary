@@ -15,7 +15,7 @@ class BookmarkController extends Controller
 
     public function index()
     {
-        $bookmark = Bookmark::where('user_id', '=', Auth()->id())->distinct()->get();
+        $bookmark = Bookmark::where('user_id', '=', Auth()->id())->orderBy('created_at','DESC')->get();
         return view('bookmark', compact('bookmark'));
     }
 

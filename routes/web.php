@@ -25,11 +25,11 @@ Route::get('/search/{word}/store', [SearchController::class, 'store']);
 
 Route::get('/history', [HistoryController::class, 'index'])->name('history.index');
 Route::get('/history/{word}', [HistoryController::class, 'show'])->name('history.search');
-Route::get('/history/{id}', [HistoryController::class, 'destroy'])->name('history.destroy');
+Route::get('/history/{id}/destroy', [HistoryController::class, 'destroy'])->name('history.destroy');
 
 Route::get('/bookmark', [BookmarkController::class, 'index'])->name('bookmark.index');
 Route::get('/bookmark/{word}', [BookmarkController::class, 'show']);
-Route::get('/bookmark/{id}', [BookmarkController::class, 'destroy'])->name('bookmark.destroy');
+Route::get('/bookmark/{id}/destroy', [BookmarkController::class, 'destroy'])->name('bookmark.destroy');
 
 Route::middleware([
     'auth:sanctum',

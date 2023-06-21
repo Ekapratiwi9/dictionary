@@ -15,7 +15,7 @@ class HistoryController extends Controller
 
     public function index()
     {
-        $history = History::where('user_id', '=', Auth()->id())->distinct()->get();
+        $history = History::where('user_id', '=', Auth()->id())->orderBy('created_at','DESC')->get();
         return view('history', compact('history'));
     }
 
@@ -34,7 +34,7 @@ class HistoryController extends Controller
     {
         $history = History::find($id);
         $history->delete();
-        return redirect()->back()->with('History', 'Data Berhasil Dihapus');
+        return redirect()->back()->with('message', 'Data Berhasil Dihapus');
     }
 
 }

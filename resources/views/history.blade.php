@@ -5,15 +5,21 @@
     <div class="alert alert-success">{{ session('message') }}</div>
 @endif
 <div class="card justify-content-center">
+
             <div class="card-body">
-            @foreach($history as $item)
+            <h3>Bookmark</h3>
+            @forelse($history as $item)
                 <div class="history">
                     
                     <a href="/history/{{$item->word}}" class="word-example">{{$item->word}}</a>
-                    <!-- <a href="/history/{{$item->id}}"><i class="bi bi-x-lg"></i></a> -->
+                    <a href="/history/{{$item->id}}/destroy"><i class="bi bi-x-lg"></i></a>
                     
                 </div>
-                @endforeach
+                @empty
+                <div class="history">
+                    <p>Data tidak ada</p>
+                </div>
+                @endforelse
             </div>
           </div>
 
